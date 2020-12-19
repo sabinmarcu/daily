@@ -43,11 +43,13 @@
     "pr:merge": "gh pr merge -rd",
     "pr:pull": "git pull origin \"$(yarn config:branch)\"",
     "pr:prune": "yarn git:prune",
+    "pr:perm": "yarn config:perm",
     "git:prune": "run-s \"git:prune:*\"",
     "git:prune:local": "git prune",
     "git:prune:remote": "git remote prune origin",
     "config:remote": "git config --get remote.origin.url | cut -d: -f2- | cut -d. -f1",
-    "config:branch": "git rev-parse --abbrev-ref HEAD"
+    "config:branch": "git rev-parse --abbrev-ref HEAD",
+    "config:perm": "find .husky -type f -print0 | xargs -0 chmod +x"
   },
   "browserslist": {
     "production": [
