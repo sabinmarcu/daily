@@ -33,7 +33,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "pr": "run-s \"pr:*\"",
+    "pr:push": "git push origin \"$(yarn config:branch)\"",
+    "pr:create": "gh pr create --base staging --repo \"$(yarn config:remote)\" --head \"$(yarn config:branch)\" --project Backlog --fill",
+    "pr:merge": "gh pr merge -rd",
+    "pr:pull": "git pull origin \"$(yarn config:branch)\"",
+    "pr:prune": "yarn git:prune",
+    "git:prune": "run-s \"git:prune:*\"",
+    "git:prune:local": "git prune",
+    "git:prune:remote": "git remote prune origin",
+    "config:remote": "git config --get remote.origin.url | cut -d: -f2- | cut -d. -f1",
+    "config:branch": "git rev-parse --abbrev-ref HEAD"
   },
   "browserslist": {
     "production": [
@@ -69,6 +80,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "next",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "prettier-airbnb-config": "^1.0.0"
   }
