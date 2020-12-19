@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "https://sabinmarcu.github.io/daily/static/css/main.19783cb4.chunk.css",
+    "main.js": "https://sabinmarcu.github.io/daily/static/js/main.249f2fc4.chunk.js",
+    "main.js.map": "https://sabinmarcu.github.io/daily/static/js/main.249f2fc4.chunk.js.map",
+    "runtime-main.js": "https://sabinmarcu.github.io/daily/static/js/runtime-main.58fd60bd.js",
+    "runtime-main.js.map": "https://sabinmarcu.github.io/daily/static/js/runtime-main.58fd60bd.js.map",
+    "static/js/2.330042df.chunk.js": "https://sabinmarcu.github.io/daily/static/js/2.330042df.chunk.js",
+    "static/js/2.330042df.chunk.js.map": "https://sabinmarcu.github.io/daily/static/js/2.330042df.chunk.js.map",
+    "static/js/3.4753a867.chunk.js": "https://sabinmarcu.github.io/daily/static/js/3.4753a867.chunk.js",
+    "static/js/3.4753a867.chunk.js.map": "https://sabinmarcu.github.io/daily/static/js/3.4753a867.chunk.js.map",
+    "index.html": "https://sabinmarcu.github.io/daily/index.html",
+    "static/css/main.19783cb4.chunk.css.map": "https://sabinmarcu.github.io/daily/static/css/main.19783cb4.chunk.css.map",
+    "static/js/2.330042df.chunk.js.LICENSE.txt": "https://sabinmarcu.github.io/daily/static/js/2.330042df.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.58fd60bd.js",
+    "static/js/2.330042df.chunk.js",
+    "static/css/main.19783cb4.chunk.css",
+    "static/js/main.249f2fc4.chunk.js"
+  ]
+}
