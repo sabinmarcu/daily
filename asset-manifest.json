@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "https://sabinmarcu.github.io/daily/static/css/main.19783cb4.chunk.css",
-    "main.js": "https://sabinmarcu.github.io/daily/static/js/main.249f2fc4.chunk.js",
-    "main.js.map": "https://sabinmarcu.github.io/daily/static/js/main.249f2fc4.chunk.js.map",
-    "runtime-main.js": "https://sabinmarcu.github.io/daily/static/js/runtime-main.58fd60bd.js",
-    "runtime-main.js.map": "https://sabinmarcu.github.io/daily/static/js/runtime-main.58fd60bd.js.map",
-    "static/js/2.330042df.chunk.js": "https://sabinmarcu.github.io/daily/static/js/2.330042df.chunk.js",
-    "static/js/2.330042df.chunk.js.map": "https://sabinmarcu.github.io/daily/static/js/2.330042df.chunk.js.map",
-    "static/js/3.4753a867.chunk.js": "https://sabinmarcu.github.io/daily/static/js/3.4753a867.chunk.js",
-    "static/js/3.4753a867.chunk.js.map": "https://sabinmarcu.github.io/daily/static/js/3.4753a867.chunk.js.map",
-    "index.html": "https://sabinmarcu.github.io/daily/index.html",
-    "static/css/main.19783cb4.chunk.css.map": "https://sabinmarcu.github.io/daily/static/css/main.19783cb4.chunk.css.map",
-    "static/js/2.330042df.chunk.js.LICENSE.txt": "https://sabinmarcu.github.io/daily/static/js/2.330042df.chunk.js.LICENSE.txt"
+    "main.js": "./main.0a8d1f58610e428e3391.bundle.js",
+    "main.js.map": "./main.0a8d1f58610e428e3391.bundle.js.map",
+    "runtime~main.js": "./runtime~main.0a8d1f58610e428e3391.bundle.js",
+    "runtime~main.js.map": "./runtime~main.0a8d1f58610e428e3391.bundle.js.map",
+    "vendors~main.css": "./static/css/vendors~main.4fd7508e.chunk.css",
+    "vendors~main.js": "./vendors~main.0a8d1f58610e428e3391.bundle.js",
+    "vendors~main.css.map": "./static/css/vendors~main.4fd7508e.chunk.css.map",
+    "vendors~main.js.map": "./vendors~main.0a8d1f58610e428e3391.bundle.js.map",
+    "iframe.html": "./iframe.html",
+    "static/media/index.css": "./static/media/roboto-latin-900italic.cb5ad999.woff2",
+    "vendors~main.0a8d1f58610e428e3391.bundle.js.LICENSE.txt": "./vendors~main.0a8d1f58610e428e3391.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.58fd60bd.js",
-    "static/js/2.330042df.chunk.js",
-    "static/css/main.19783cb4.chunk.css",
-    "static/js/main.249f2fc4.chunk.js"
+    "runtime~main.0a8d1f58610e428e3391.bundle.js",
+    "static/css/vendors~main.4fd7508e.chunk.css",
+    "vendors~main.0a8d1f58610e428e3391.bundle.js",
+    "main.0a8d1f58610e428e3391.bundle.js"
   ]
 }
