@@ -2,6 +2,11 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import Color from 'color';
 import { FC } from 'react';
 
+export type BaseSizeType = 'small' | 'medium' | 'large' | number;
+export type BaseSizeArgs = {
+  size?: BaseSizeType,
+};
+
 export type BaseDefaultArgs = {
   variant: 'default',
 };
@@ -41,4 +46,6 @@ export type LerpIconProps = BaseLerpArgs & (LerpIconArgs | DefaultIconArgs);
 export type DefaultArgs = DefaultColorProps & DefaultIconProps;
 export type LerpArgs = LerpColorProps & LerpIconProps;
 
-export type TackProps = DefaultArgs | LerpArgs;
+export type TackProps = BaseSizeArgs & (DefaultArgs | LerpArgs);
+
+export type TackPrimitiveProps = DefaultColorArgs & BaseSizeArgs;

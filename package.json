@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
@@ -37,7 +39,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "husky install",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "start-storybook -p 5000 -s public",
     "build-storybook": "build-storybook -s public",
     "feat": "gh issue create --label feat --project Backlog --assignee sabinmarcu --body \\\"\\\" --title \"$*\" && yarn fetch",
     "bug": "gh issue create --label bug --project Backlog --assignee sabinmarcu --body \\\"\\\" --title \"$*\" && yarn fetch",

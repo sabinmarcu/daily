@@ -40,12 +40,20 @@ const disabledArgs = disable(
 
 export const argTypes = {
   color: { control: 'color' },
+  size: {
+    control: {
+      type: 'range',
+      min: 30,
+      max: 100,
+    },
+  },
   children: iconSelect,
   ...disabledArgs,
 };
 
 export const args = {
   color: 'red',
+  size: 50,
   children: Object.keys(iconMap)[0],
 };
 
