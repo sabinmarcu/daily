@@ -1,3 +1,5 @@
+[![Github Status](https://github.com/sabinmarcu/daily/workflows/Build%20Site/badge.svg)](https://github.com/sabinmarcu/daily/actions?query=workflow%3A"Build+Site")
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
