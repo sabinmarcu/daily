@@ -39,7 +39,6 @@
     "postinstall": "husky install",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-
     "feat": "gh issue create --label feat --project Backlog --assignee sabinmarcu --body \\\"\\\" --title \"$*\" && yarn fetch",
     "bug": "gh issue create --label bug --project Backlog --assignee sabinmarcu --body \\\"\\\" --title \"$*\" && yarn fetch",
     "chore": "gh issue create --label chore --project Backlog --assignee sabinmarcu --body \\\"\\\" --title \"$*\" && yarn fetch",
@@ -101,6 +100,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "next",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "prettier-airbnb-config": "^1.0.0"
   }
