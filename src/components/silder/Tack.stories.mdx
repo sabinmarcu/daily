@@ -18,6 +18,38 @@ import { createElement } from 'react';
 
 The drag bit of the slider component.
 
+import { Icon, Container, Typography, colors, sizes } from './stories/demo';
+
+<Story name="Demo">
+  <Container>
+    <Typography variant="h4">Colors</Typography>
+    {colors.map((color) => (
+      <Tack
+        color={new Color(color)}
+        variant="default"
+        key={color}
+      >
+        <Icon />
+      </Tack>
+    ))}
+  </Container>
+  <Container>
+    <Typography variant="h4">Sizes</Typography>
+    {sizes.map((size) => (
+      <Tack
+        color={new Color('red')}
+        variant="default"
+        key={size}
+        size={size}
+      >
+        <Icon />
+      </Tack>
+    ))}
+  </Container>
+</Story>
+
+Below you will find the ways this component can be used.
+
 ## Default Usage
 
 The default usage of this component is to provide it with a color, and a child. The child component.
