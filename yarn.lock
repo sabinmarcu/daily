@@ -3286,7 +3286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:6.1.11":
+"@storybook/addons@npm:6.1.11, @storybook/addons@npm:^6.1.11":
   version: 6.1.11
   resolution: "@storybook/addons@npm:6.1.11"
   dependencies:
@@ -3691,7 +3691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:6.1.11":
+"@storybook/theming@npm:6.1.11, @storybook/theming@npm:^6.1.11":
   version: 6.1.11
   resolution: "@storybook/theming@npm:6.1.11"
   dependencies:
@@ -8238,9 +8238,11 @@ __metadata:
     "@storybook/addon-docs": ^6.1.11
     "@storybook/addon-essentials": ^6.1.11
     "@storybook/addon-links": ^6.1.11
+    "@storybook/addons": ^6.1.11
     "@storybook/node-logger": ^6.1.11
     "@storybook/preset-create-react-app": ^3.1.5
     "@storybook/react": ^6.1.11
+    "@storybook/theming": ^6.1.11
     "@testing-library/jest-dom": ^5.11.4
     "@testing-library/react": ^11.1.0
     "@testing-library/user-event": ^12.1.10

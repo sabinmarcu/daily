@@ -21,8 +21,8 @@ export const Slider: VFC<SliderProps> = ({
   size = 'medium',
 }) => {
   const [containerSize, measureProps] = useSize();
-  const [progress, startDragging] = useProgress(range, containerSize);
-  const currentStep = useTackRange(range, progress);
+  const [progress, dragging, setProgress, startDragging] = useProgress(range, containerSize);
+  const currentStep = useTackRange(range, progress, dragging, setProgress);
   const tackProps: FinalLerpArgs | FinalDefaultArgs = useMemo(
     () => (currentStep
       ? {
@@ -67,6 +67,7 @@ export const Slider: VFC<SliderProps> = ({
           }}
           size={size}
           onMouseDown={startDragging}
+          animation={!dragging}
           center
         >
           C

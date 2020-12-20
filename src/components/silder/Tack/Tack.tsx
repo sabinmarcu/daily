@@ -32,21 +32,21 @@ LerpIconArgs
   }
   return (
     <>
-      <TackInnerWrapper>
-        <IconB
-          style={{
-            opacity: lerp(0, 1, (percent / 100)),
-            transform: `scale(${lerp(0.5, 1, (percent / 100))})`,
-          }}
-        />
+      <TackInnerWrapper
+        style={{
+          opacity: lerp(0, 1, (percent / 100)),
+          transform: `scale(${lerp(0.5, 1, (percent / 100))})`,
+        }}
+      >
+        <IconB />
       </TackInnerWrapper>
-      <TackInnerWrapper>
-        <IconA
-          style={{
-            opacity: lerp(0, 1, 1 - (percent / 100)),
-            transform: `scale(${lerp(1.5, 1, 1 - (percent / 100))})`,
-          }}
-        />
+      <TackInnerWrapper
+        style={{
+          opacity: lerp(0, 1, 1 - (percent / 100)),
+          transform: `scale(${lerp(1.5, 1, 1 - (percent / 100))})`,
+        }}
+      >
+        <IconA />
       </TackInnerWrapper>
     </>
   );

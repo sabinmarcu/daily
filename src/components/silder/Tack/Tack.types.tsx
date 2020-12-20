@@ -1,6 +1,6 @@
 import Color from 'color';
-import { DOMAttributes } from 'react';
-import { BaseSizeType, WithStyle, IconType } from '../types';
+import { DOMAttributes, FC } from 'react';
+import { BaseSizeType, WithStyle } from '../types';
 
 export type SizeType = BaseSizeType | number;
 export type SizeArgs = {
@@ -35,8 +35,12 @@ export type LerpColorArgs = {
 export type DefaultIconArgs = {};
 
 export type LerpIconArgs = {
-  iconFrom: IconType,
-  iconTo: IconType,
+  iconFrom: FC,
+  iconTo: FC,
+};
+
+export type Animated = {
+  animation?: boolean,
 };
 
 export type DefaultColorProps = BaseDefaultArgs & DefaultColorArgs;
@@ -54,10 +58,12 @@ export type TackProps = DOMAttributes<HTMLDivElement>
 & WithStyle
 & CenterType
 & SizeArgs
+& Animated
 & (DefaultArgs | LerpArgs);
 
 export type TackPrimitiveProps = DOMAttributes<HTMLDivElement>
 & WithStyle
 & CenterType
 & SizeArgs
+& Animated
 & DefaultColorArgs;

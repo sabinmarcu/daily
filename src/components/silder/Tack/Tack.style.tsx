@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { FC, CSSProperties, useMemo } from 'react';
+import { IconType } from '../types';
 import { TackPrimitiveProps, SizeType } from './Tack.types';
 
 const centerStyles: Partial<CSSProperties> = {
@@ -68,14 +69,19 @@ const useStyles = makeStyles(
     wrapper: {
       ...absStyles,
       ...centerStyles,
+      transition: 'var(--inner-wrapper-transition)',
+    },
+    animated: {
+      transition: transition(['background', 'left', 'box-shadow']),
+      '--inner-wrapper-transition': transition(['opacity', 'transform']),
     },
   }),
 );
 
-export const TackInnerWrapper: FC = ({ children }) => {
-  const styles = useStyles();
+export const TackInnerWrapper: IconType = ({ children, ...rest }) => {
+  const styles = useStyles(rest);
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} {...rest}>
       {children}
     </div>
   );
@@ -96,6 +102,7 @@ export const TackWrapper: FC<TackPrimitiveProps> = ({
   center,
   size = 'medium',
   style,
+  animation,
   ...rest
 }) => {
   const styles = useStyles(rest);
@@ -117,9 +124,13 @@ export const TackWrapper: FC<TackPrimitiveProps> = ({
     '--hover-bg': color.isLight() ? 'black' : 'white',
     '--hover-op': color.isLight() ? '0.1' : '0.3',
   };
+  const classes = [
+    styles.tack,
+    animation && styles.animated,
+  ].filter(Boolean).join(' ');
   return (
     <div
-      className={styles.tack}
+      className={classes}
       style={finalStyle as CSSProperties}
       {...rest}
     />
