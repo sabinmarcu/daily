@@ -5,6 +5,7 @@ export type RangeType = {
   color: string,
   icon: IconType,
   default?: boolean,
+  name?: string,
 };
 
 export type RangeParamType = {
@@ -30,8 +31,14 @@ export type StepType = {
   colorTo: string,
   iconFrom: IconType,
   iconTo: IconType,
+  name: string | undefined,
+};
+
+export type BackTalkSliderProp = {
+  onChange?: (step: RangeType) => void,
 };
 
 export type SliderProps = SizeType
 & RangeParamType
-& SliderColorProp;
+& SliderColorProp
+& BackTalkSliderProp;

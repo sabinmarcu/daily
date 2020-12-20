@@ -9,7 +9,10 @@ import {
 } from '../../stories/common';
 import type {
   IconType,
-} from '../Tack.types';
+} from '../../types';
+import {
+  disabled,
+} from './common';
 
 export const Template = ({
   iconFrom,
@@ -54,19 +57,23 @@ export const args = {
   percent: 50,
 };
 
-const disabled = disable([
-  'children',
-  'variant',
-  'colorFrom',
-  'colorTo',
-]);
+const disabledArgs = {
+  ...disabled,
+  ...disable([
+    'children',
+    'variant',
+    'colorFrom',
+    'colorTo',
+    'size',
+    'color',
+  ]),
+};
 
 export const argTypes = {
-  color: { control: 'color' },
   percent: { control: { type: 'range', min: 0, max: 100 } },
   iconFrom: iconSelect,
   iconTo: iconSelect,
-  ...disabled,
+  ...disabledArgs,
 };
 
 export const parameters = makeSource(`

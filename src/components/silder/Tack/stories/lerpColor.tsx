@@ -1,6 +1,7 @@
 import Color from 'color';
 import { Tack } from '../Tack';
 import { disable, makeSource } from '../../stories/common';
+import { disabled } from './common';
 
 export const args = {
   children: 'C',
@@ -9,19 +10,23 @@ export const args = {
   percent: 50,
 };
 
-const disabled = disable([
-  'children',
-  'color',
-  'variant',
-  'iconFrom',
-  'iconTo',
-]);
+const disabledArgs = {
+  ...disabled,
+  ...disable([
+    'children',
+    'color',
+    'variant',
+    'iconFrom',
+    'iconTo',
+    'size',
+  ]),
+};
 
 export const argTypes = {
   colorFrom: { control: 'color' },
   colorTo: { control: 'color' },
   percent: { control: { type: 'range', min: 0, max: 100 } },
-  ...disabled,
+  ...disabledArgs,
 };
 
 export const parameters = makeSource(`

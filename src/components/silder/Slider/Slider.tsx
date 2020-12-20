@@ -11,22 +11,29 @@ import {
   SliderWrapper,
 } from './Slider.style';
 import { SliderProps } from './Slider.types';
-import { FinalLerpArgs, FinalDefaultArgs, Tack } from '../Tack';
+import {
+  FinalLerpArgs,
+  FinalDefaultArgs,
+  Tack,
+  TackProps,
+} from '../Tack';
 import { useSize } from '../../../hooks/useSize';
-import { useProgress, useTackRange } from './Slider.hooks';
+import { useChange, useProgress, useTackRange } from './Slider.hooks';
 
 export const Slider: VFC<SliderProps> = ({
   range,
   color,
+  onChange,
   size = 'medium',
 }) => {
   const [containerSize, measureProps] = useSize();
   const [progress, dragging, setProgress, startDragging] = useProgress(range, containerSize);
-  const currentStep = useTackRange(range, progress, dragging, setProgress);
+  const { renderStep, closestPoint } = useTackRange(range, progress, dragging, setProgress);
+  useChange(closestPoint, onChange);
   const tackProps: FinalLerpArgs | FinalDefaultArgs = useMemo(
-    () => (currentStep
+    () => (renderStep
       ? {
-        ...currentStep,
+        ...renderStep,
         variant: 'lerp',
       }
       : {
@@ -34,8 +41,20 @@ export const Slider: VFC<SliderProps> = ({
         color: new Color(color),
       }
     ),
-    [currentStep, color],
+    [renderStep, color],
   );
+  const tackRenderProps: TackProps = {
+    ...tackProps,
+    style: {
+      position: 'absolute',
+      left: containerSize ? (progress / 100) * containerSize.width : `${progress}%`,
+      top: containerSize ? containerSize.height / 2 : '50%',
+    },
+    onMouseDown: startDragging,
+    animation: !dragging,
+    size,
+    center: true,
+  };
   return (
     <SliderRoot size={size}>
       <Measure {...measureProps}>
@@ -58,20 +77,7 @@ export const Slider: VFC<SliderProps> = ({
         ))}
       </SliderWrapper>
       <SliderWrapper zIndex={5}>
-        <Tack
-          {...tackProps}
-          style={{
-            position: 'absolute',
-            left: containerSize ? (progress / 100) * containerSize.width : `${progress}%`,
-            top: containerSize ? containerSize.height / 2 : '50%',
-          }}
-          size={size}
-          onMouseDown={startDragging}
-          animation={!dragging}
-          center
-        >
-          C
-        </Tack>
+        <Tack {...tackRenderProps} />
       </SliderWrapper>
     </SliderRoot>
   );

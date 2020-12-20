@@ -1,18 +1,31 @@
 import { useTheme } from '@material-ui/core';
 import { Slider } from '../Slider';
-import { disable, iconMap } from '../../stories/common';
-import { RangeType } from '../Slider.types';
+import { disable, iconMap, iconSelect } from '../../stories/common';
 
-const range: RangeType[] = [
-  { at: 0, icon: iconMap.AcUnitIcon, color: '#000' },
-  {
-    at: 50, icon: iconMap.AirplanemodeActiveIcon, color: '#0cf', default: true,
-  },
-  { at: 100, icon: iconMap.AspectRatioIcon, color: '#fff' },
-];
-
-export const Template = ({ color, ...rest }: any) => {
+export const Template = ({
+  color,
+  leftColor,
+  centerColor,
+  rightColor,
+  leftIcon,
+  centerIcon,
+  rightIcon,
+  ...rest
+}: {
+  leftIcon: keyof typeof iconMap,
+  centerIcon: keyof typeof iconMap,
+  rightIcon: keyof typeof iconMap,
+} & {
+  [key: string]: any
+}) => {
   const theme = useTheme();
+  const range = [
+    { at: 0, color: leftColor, icon: iconMap[leftIcon] },
+    {
+      at: 50, color: centerColor, icon: iconMap[centerIcon], default: true,
+    },
+    { at: 100, color: rightColor, icon: iconMap[rightIcon] },
+  ];
   return (
     <Slider
       range={range}
@@ -24,11 +37,23 @@ export const Template = ({ color, ...rest }: any) => {
 
 export const argTypes = {
   color: { control: 'color' },
-  ...disable(['range']),
+  leftColor: { control: 'color' },
+  centerColor: { control: 'color' },
+  rightColor: { control: 'color' },
+  leftIcon: iconSelect,
+  centerIcon: iconSelect,
+  rightIcon: iconSelect,
+  ...disable(['range', 'onChange']),
 };
 
 export const args = {
   color: '',
+  leftColor: '#000',
+  centerColor: '#888',
+  rightColor: '#fff',
+  leftIcon: 'AcUnitIcon',
+  centerIcon: 'AirplanemodeActiveIcon',
+  rightIcon: 'AspectRatioIcon',
 };
 
 export const parameters = {};
