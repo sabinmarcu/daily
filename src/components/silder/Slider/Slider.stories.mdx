@@ -1,0 +1,37 @@
+import {
+  Meta,
+  Canvas,
+  Story,
+  ArgsTable,
+  Source
+} from '@storybook/addon-docs/blocks';
+import { Slider } from './Slider';
+
+# Slider
+
+<Meta
+  title="Slider/Slider"
+  component={Slider}
+/>
+
+# Default Usage
+
+import {
+  argTypes as defaultArgTypes,
+  args as defaultArgs,
+  parameters as defaultParameters,
+  Template as DefaultTemplate,
+} from './stories/default';
+
+<Canvas>
+  <Story
+    name="Default Usage"
+    argTypes={defaultArgTypes}
+    args={defaultArgs}
+    parameters={defaultParameters}
+  >
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default Usage" />

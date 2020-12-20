@@ -18,33 +18,80 @@ import { createElement } from 'react';
 
 The drag bit of the slider component.
 
-import { Icon, Container, Typography, colors, sizes } from './stories/demo';
+import {
+  Icon,
+  Container,
+  Typography,
+  ItemContainer,
+  CenterContainer,
+  colors,
+  sizes
+} from './stories/demo';
 
 <Story name="Demo">
   <Container>
     <Typography variant="h4">Colors</Typography>
+    <Typography>
+      A few examples of how to color the items
+    </Typography>
     {colors.map((color) => (
-      <Tack
-        color={new Color(color)}
-        variant="default"
-        key={color}
-      >
-        <Icon />
-      </Tack>
+      <ItemContainer shadow={false} key={color}>
+        <Tack
+          color={new Color(color)}
+          variant="default"
+        >
+          <Icon />
+        </Tack>
+        <Typography>{color}</Typography>
+      </ItemContainer>
     ))}
   </Container>
   <Container>
     <Typography variant="h4">Sizes</Typography>
+    <Typography>
+      A few examples of sizing
+    </Typography>
     {sizes.map((size) => (
-      <Tack
-        color={new Color('red')}
-        variant="default"
-        key={size}
-        size={size}
-      >
-        <Icon />
-      </Tack>
+      <ItemContainer key={size} shadow={false}>
+        <Tack
+          color={new Color('red')}
+          variant="default"
+          size={size}
+        >
+          <Icon />
+        </Tack>
+        <Typography>{size}</Typography>
+      </ItemContainer>
     ))}
+  </Container>
+  <Container>
+    <Typography variant="h4">Centering</Typography>
+    <Typography>
+      These elemets are positioned absolute to the center of the box
+    </Typography>
+    <ItemContainer stretch={true}>
+      <CenterContainer>
+        <Tack
+          variant="default"
+          color={new Color('red')}
+        >
+          <Icon></Icon>
+        </Tack>
+      </CenterContainer>
+      <Typography>Not Centered</Typography>
+    </ItemContainer>
+    <ItemContainer stretch={true}>
+      <CenterContainer>
+        <Tack
+          variant="default"
+          color={new Color('red')}
+          center
+        >
+          <Icon></Icon>
+        </Tack>
+      </CenterContainer>
+      <Typography>Centered</Typography>
+    </ItemContainer>
   </Container>
 </Story>
 

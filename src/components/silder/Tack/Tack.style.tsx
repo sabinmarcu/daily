@@ -1,14 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { FC, CSSProperties, useMemo } from 'react';
-import { TackPrimitiveProps, BaseSizeType } from './Tack.types';
+import { TackPrimitiveProps, SizeType } from './Tack.types';
 
-const center: Partial<CSSProperties> = {
+const centerStyles: Partial<CSSProperties> = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 };
 
-const abs: Partial<CSSProperties> = {
+const absStyles: Partial<CSSProperties> = {
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -42,7 +42,7 @@ const useStyles = makeStyles(
       transition: transition('box-shadow'),
       position: 'relative',
       overflow: 'hidden',
-      ...center,
+      ...centerStyles,
 
       '&:hover': {
         boxShadow: hoverShadow,
@@ -52,16 +52,22 @@ const useStyles = makeStyles(
       },
 
       '&::after': {
-        ...abs,
+        ...absStyles,
         content: '""',
         background: 'var(--hover-bg)',
         opacity: 0,
         transition: transition('opacity'),
       },
+      '& svg': {
+        fontSize: '1em',
+      },
+      '& *': {
+        pointerEvents: 'none',
+      },
     },
     wrapper: {
-      ...abs,
-      ...center,
+      ...absStyles,
+      ...centerStyles,
     },
   }),
 );
@@ -75,7 +81,7 @@ export const TackInnerWrapper: FC = ({ children }) => {
   );
 };
 
-const useSize = (size: BaseSizeType) => useMemo(
+const useSize = (size: SizeType) => useMemo(
   () => {
     if (typeof size === 'string') {
       return sizeMap[size];
@@ -87,23 +93,34 @@ const useSize = (size: BaseSizeType) => useMemo(
 
 export const TackWrapper: FC<TackPrimitiveProps> = ({
   color,
+  center,
   size = 'medium',
+  style,
   ...rest
 }) => {
   const styles = useStyles(rest);
   const realSize = useSize(size);
-  const style = {
+  const finalStyle = {
     background: color.hex(),
     color: color.isLight() ? 'black' : 'white',
     width: realSize,
     height: realSize,
+    fontSize: realSize * 0.6,
+    ...(center
+      ? {
+        marginLeft: -(realSize / 2),
+        marginTop: -(realSize / 2),
+      }
+      : {}
+    ),
+    ...style,
     '--hover-bg': color.isLight() ? 'black' : 'white',
     '--hover-op': color.isLight() ? '0.1' : '0.3',
   };
   return (
     <div
       className={styles.tack}
-      style={style as CSSProperties}
+      style={finalStyle as CSSProperties}
       {...rest}
     />
   );

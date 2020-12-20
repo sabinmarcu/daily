@@ -5,6 +5,22 @@ import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 import Battery20Icon from '@material-ui/icons/Battery20';
 import BatteryCharging90Icon from '@material-ui/icons/BatteryCharging90';
 
+export const iconMap = {
+  AcUnitIcon,
+  AccessibilityIcon,
+  AirplanemodeActiveIcon,
+  AspectRatioIcon,
+  Battery20Icon,
+  BatteryCharging90Icon,
+};
+
+export const iconSelect = {
+  control: {
+    type: 'select',
+    options: Object.keys(iconMap),
+  },
+};
+
 export const disable = <T extends readonly string[]>(
   fields: T,
 ): {
@@ -36,19 +52,3 @@ export const makeSource = (template: string): {
     },
   },
 });
-
-export const iconMap = {
-  AcUnitIcon,
-  AccessibilityIcon,
-  AirplanemodeActiveIcon,
-  AspectRatioIcon,
-  Battery20Icon,
-  BatteryCharging90Icon,
-};
-
-export const iconSelect = {
-  control: {
-    type: 'select',
-    options: Object.keys(iconMap),
-  },
-};
