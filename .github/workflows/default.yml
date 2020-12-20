@@ -25,12 +25,9 @@ jobs:
     - name: Setup
       run: yarn install
     - name: Build
-      run: yarn run build
-      env:
-        PUBLIC_URL: "https://sabinmarcu.github.io/daily"
-        REACT_APP_BASE_URL: '/daily'
+      run: yarn run build-storybook
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./storybook-static
