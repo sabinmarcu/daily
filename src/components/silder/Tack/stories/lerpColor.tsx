@@ -1,6 +1,6 @@
 import Color from 'color';
 import { Tack } from '../Tack';
-import { disable, makeSource } from './common';
+import { disable, makeSource } from '../../stories/common';
 
 export const args = {
   children: 'C',

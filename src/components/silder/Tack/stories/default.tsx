@@ -6,7 +6,7 @@ import {
   iconMap,
   iconSelect,
   makeSource,
-} from './common';
+} from '../../stories/common';
 
 export const Template = ({ color, children, ...args }: any) => {
   let kids = children;

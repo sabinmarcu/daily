@@ -6,7 +6,7 @@ import {
   iconMap,
   iconSelect,
   makeSource,
-} from './common';
+} from '../../stories/common';
 import type {
   IconType,
 } from '../Tack.types';

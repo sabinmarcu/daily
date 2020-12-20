@@ -36,6 +36,19 @@ export const globalTypes = {
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  backgrounds: {
+    default: 'Light',
+    values: [
+      {
+        name: 'Light',
+        value: lightTheme.palette.background.paper,
+      },
+      {
+        name: 'Dark',
+        value: darkTheme.palette.background.paper,
+      },
+    ]
+  }
 }
 
 export const decorators = [

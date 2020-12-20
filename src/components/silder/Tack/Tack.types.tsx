@@ -1,10 +1,14 @@
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import Color from 'color';
-import { FC } from 'react';
+import { DOMAttributes } from 'react';
+import { BaseSizeType, WithStyle, IconType } from '../types';
 
-export type BaseSizeType = 'small' | 'medium' | 'large' | number;
-export type BaseSizeArgs = {
+export type SizeType = BaseSizeType | number;
+export type SizeArgs = {
   size?: BaseSizeType,
+};
+
+export type CenterType = {
+  center?: boolean,
 };
 
 export type BaseDefaultArgs = {
@@ -30,8 +34,6 @@ export type LerpColorArgs = {
 
 export type DefaultIconArgs = {};
 
-export type IconType = FC<{ style: CSSProperties }>;
-
 export type LerpIconArgs = {
   iconFrom: IconType,
   iconTo: IconType,
@@ -43,9 +45,19 @@ export type LerpColorProps = BaseLerpArgs & (LerpColorArgs | DefaultColorArgs);
 export type DefaultIconProps = BaseDefaultArgs & DefaultIconArgs;
 export type LerpIconProps = BaseLerpArgs & (LerpIconArgs | DefaultIconArgs);
 
-export type DefaultArgs = DefaultColorProps & DefaultIconProps;
-export type LerpArgs = LerpColorProps & LerpIconProps;
+export type FinalDefaultArgs = DefaultColorProps & DefaultIconProps;
+export type DefaultArgs = WithStyle & FinalDefaultArgs;
+export type FinalLerpArgs = LerpColorProps & LerpIconProps;
+export type LerpArgs = WithStyle & FinalLerpArgs;
 
-export type TackProps = BaseSizeArgs & (DefaultArgs | LerpArgs);
+export type TackProps = DOMAttributes<HTMLDivElement>
+& WithStyle
+& CenterType
+& SizeArgs
+& (DefaultArgs | LerpArgs);
 
-export type TackPrimitiveProps = DefaultColorArgs & BaseSizeArgs;
+export type TackPrimitiveProps = DOMAttributes<HTMLDivElement>
+& WithStyle
+& CenterType
+& SizeArgs
+& DefaultColorArgs;

@@ -1,7 +1,7 @@
 import Color from 'color';
 import { FC, useMemo } from 'react';
 import interpolate from 'color-interpolate';
-import { lerp } from '../../utils/lerp';
+import { lerp } from '../../../utils/lerp';
 
 import { TackInnerWrapper, TackWrapper } from './Tack.style';
 import type {
@@ -13,6 +13,7 @@ import type {
   LerpIconArgs,
   TackProps,
 } from './Tack.types';
+import { WithStyle } from '../types';
 
 export const DefaultTack: FC<DefaultArgs> = (
   props,
@@ -32,7 +33,7 @@ LerpIconArgs
   return (
     <>
       <TackInnerWrapper>
-        <IconA
+        <IconB
           style={{
             opacity: lerp(0, 1, (percent / 100)),
             transform: `scale(${lerp(0.5, 1, (percent / 100))})`,
@@ -40,7 +41,7 @@ LerpIconArgs
         />
       </TackInnerWrapper>
       <TackInnerWrapper>
-        <IconB
+        <IconA
           style={{
             opacity: lerp(0, 1, 1 - (percent / 100)),
             transform: `scale(${lerp(1.5, 1, 1 - (percent / 100))})`,
@@ -83,7 +84,7 @@ export const LerpTack: FC<LerpArgs> = ({
       iconTo,
       children,
       ...rest
-    } = args as LerpIconArgs & Omit<typeof args, keyof LerpArgs>;
+    } = args as LerpIconArgs & Omit<typeof args, keyof LerpArgs> & WithStyle;
     return (
       <TackWrapper
         {...rest}
