@@ -1,0 +1,114 @@
+import Color from 'color';
+import {
+  Meta,
+  Canvas,
+  Story,
+  ArgsTable,
+  Source
+} from '@storybook/addon-docs/blocks';
+import { Tack } from './Tack';
+import { createElement } from 'react';
+
+<Meta
+  title="Slider/Tack"
+  component={Tack}
+/>
+
+# Slider Tack
+
+The drag bit of the slider component.
+
+## Default Usage
+
+The default usage of this component is to provide it with a color, and a child. The child component.
+
+import {
+  argTypes as defaultArgTypes,
+  args as defaultArgs,
+  parameters as defaultParameters,
+  Template as DefaultTemplate,
+} from './stories/default';
+
+<Canvas>
+  <Story
+    name="Default Usage"
+    argTypes={defaultArgTypes}
+    args={defaultArgs}
+    parameters={defaultParameters}
+  >
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default Usage" />
+
+That being said, the main purpose of this component is to change color and icon based on a percentage, to be used in the slider component.
+
+## Lerp Color
+
+This is an example of how the color will change depending on a percentage:
+
+import {
+  argTypes as lerpColorArgTypes,
+  args as lerpColorArgs,
+  parameters as lerpColorParameters,
+  Template as LerpColorTemplate,
+} from './stories/lerpColor';
+
+<Canvas>
+  <Story name="Lerp Color Usage"
+    argTypes={lerpColorArgTypes}
+    args={lerpColorArgs}
+    parameters={lerpColorParameters}
+  >
+    {LerpColorTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Lerp Color Usage" />
+
+## Lerp Icon
+
+And this is an example of how the icons will change depending on a percentage:
+
+import {
+  argTypes as lerpIconArgTypes,
+  args as lerpIconArgs,
+  parameters as lerpIconParameters,
+  Template as LerpIconTemplate,
+} from './stories/lerpIcon';
+
+<Canvas>
+  <Story name="Lerp Icon Usage"
+    argTypes={lerpIconArgTypes}
+    args={lerpIconArgs}
+    parameters={lerpIconParameters}
+  >
+    {LerpIconTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Lerp Icon Usage" />
+
+## Full Lerp Usage
+
+Finally, here is an example of the intended use of this component:
+
+import {
+  argTypes as lerpArgTypes,
+  args as lerpArgs,
+  parameters as lerpParameters,
+  Template as LerpTemplate,
+} from './stories/lerp';
+
+<Canvas>
+  <Story name="Lerp Usage"
+    argTypes={lerpArgTypes}
+    args={lerpArgs}
+    parameters={lerpParameters}
+  >
+    {LerpTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Lerp Usage" />
