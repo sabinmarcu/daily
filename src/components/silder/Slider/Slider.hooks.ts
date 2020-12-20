@@ -9,7 +9,8 @@ import {
 } from 'react';
 import { BoundingRect } from 'react-measure';
 import { clamp, range as interpolate } from '../../../utils/lerp';
-import { RangeType, StepType } from './Slider.types';
+import { RangeType, StepType, BackTalkSliderProp } from './Slider.types';
+import { usePrevious } from '../../../hooks/usePrevious';
 
 type VoidFunction = () => void;
 export const useProgress = (
@@ -105,7 +106,7 @@ export const useTackRange = (
     () => steps.find(({ from, to }) => progress <= to && progress >= from),
     [steps, progress],
   );
-  const renderCurrentStep = useMemo(
+  const renderStep = useMemo(
     () => {
       if (!currentStep) {
         return undefined;
@@ -134,25 +135,49 @@ export const useTackRange = (
     },
     [currentStep, progress],
   );
+  const closestPoint = useMemo(
+    () => {
+      const [first, ...rest] = range;
+      return rest.reduce(
+        ([min, step]: [number, RangeType], it) => {
+          const dist = Math.abs(it.at - progress);
+          if (min > dist) {
+            return [dist, it] as [number, RangeType];
+          }
+          return [min, step] as [number, RangeType];
+        },
+        [Math.abs(first.at - progress), first] as [number, RangeType],
+      )[1];
+    },
+    [range, progress],
+  );
   useEffect(
     () => {
       const isAtPoint = range.find(({ at }) => at === progress);
       if (!dragging && !isAtPoint) {
-        const [first, ...rest] = range;
-        const closestPoint = rest.reduce(
-          ([min, step]: [number, RangeType], it) => {
-            const dist = Math.abs(it.at - progress);
-            if (min > dist) {
-              return [dist, it] as [number, RangeType];
-            }
-            return [min, step] as [number, RangeType];
-          },
-          [Math.abs(first.at - progress), first] as [number, RangeType],
-        )[1];
         setProgress(closestPoint.at);
       }
     },
-    [dragging, range, progress, setProgress],
+    [dragging, range, progress, closestPoint, setProgress],
   );
-  return renderCurrentStep;
+  return {
+    currentStep,
+    renderStep,
+    closestPoint,
+  };
+};
+
+export const useChange = (
+  closestPoint?: RangeType,
+  onChange?: BackTalkSliderProp['onChange'],
+) => {
+  const previousCurrentStep = usePrevious(closestPoint);
+  useEffect(
+    () => {
+      if (onChange && closestPoint && previousCurrentStep !== closestPoint) {
+        onChange(closestPoint);
+      }
+    },
+    [closestPoint, previousCurrentStep, onChange],
+  );
 };

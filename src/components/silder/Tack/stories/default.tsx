@@ -7,6 +7,9 @@ import {
   iconSelect,
   makeSource,
 } from '../../stories/common';
+import {
+  disabled,
+} from './common';
 
 export const Template = ({ color, children, ...args }: any) => {
   let kids = children;
@@ -27,16 +30,19 @@ export const Template = ({ color, children, ...args }: any) => {
   );
 };
 
-const disabledArgs = disable(
-  [
-    'colorFrom',
-    'colorTo',
-    'percent',
-    'variant',
-    'iconFrom',
-    'iconTo',
-  ],
-);
+const disabledArgs = {
+  ...disabled,
+  ...disable(
+    [
+      'colorFrom',
+      'colorTo',
+      'percent',
+      'variant',
+      'iconFrom',
+      'iconTo',
+    ],
+  ),
+};
 
 export const argTypes = {
   color: { control: 'color' },

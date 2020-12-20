@@ -14,7 +14,13 @@ import { Slider } from './Slider';
   component={Slider}
 />
 
-# Default Usage
+The slider component will be used in the app to select a mood.
+
+In essence, this component receives an array of steps to be selected, containing a color, icon, percentage, optional name and if the item should be default
+
+## Default Usage
+
+Here's an example with just a basic range supplied to it, and no back talking to its parent to act as a playground.
 
 import {
   argTypes as defaultArgTypes,
@@ -35,3 +41,28 @@ import {
 </Canvas>
 
 <ArgsTable story="Default Usage" />
+
+
+## Emotion Example
+
+And this is a more complex example, more real-world, with the component reporting on changes to its parent component, and using mood icons
+
+import {
+  argTypes as emotionArgTypes,
+  args as emotionArgs,
+  parameters as emotionParameters,
+  Template as EmotionTemplate,
+} from './stories/emotion';
+
+<Canvas>
+  <Story
+    name="Emotion Example"
+    argTypes={emotionArgTypes}
+    args={emotionArgs}
+    parameters={emotionParameters}
+  >
+    {EmotionTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Emotion Example" />
