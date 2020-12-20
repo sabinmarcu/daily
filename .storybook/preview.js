@@ -3,6 +3,7 @@ import {
   StylesProvider,
   createMuiTheme
 } from '@material-ui/core/styles';
+import { themes } from '@storybook/theming'
 import 'typeface-roboto';
 
 const lightTheme = createMuiTheme({
@@ -38,6 +39,9 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
     default: 'Light',
+    docs: {
+      theme: themes.dark,
+    },
     values: [
       {
         name: 'Light',
