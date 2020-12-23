@@ -52,10 +52,13 @@ export const useGlobalStyles = makeStyles(
       background,
       color,
       transition: transition(['background', 'color']),
+      '--theme-background': background,
+      '--theme-text': color,
     },
     '.docs-story, .os-host': {
       background: `${paper} !important`,
       transition: transition(['background']),
+      '--theme-background': paper,
     },
     '.sbdocs-title': {
       color,
