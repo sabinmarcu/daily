@@ -1,4 +1,6 @@
 import merge from 'ts-deepmerge';
+import 'typeface-roboto';
+
 import {
   globalTypes as themeGlobalTypes,
   parameters as themeParameters,

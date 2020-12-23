@@ -46,6 +46,13 @@ Playground.argTypes = {
     },
   },
 };
+Playground.parameters = {
+  description: {
+    story: `
+      This acts as a playground to test out a sample showcase on all theme emotion and brightness combinations
+    `,
+  },
+};
 
 const makeShowcase = (
   emotion: Emotions,
