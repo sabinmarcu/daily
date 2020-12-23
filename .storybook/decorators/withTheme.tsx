@@ -20,11 +20,11 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global Theme',
-    defaultValue: 'Light',
+    defaultValue: 'Neutral Dark',
     toolbar: {
       icon: 'circlehollow',
       items: Object.keys(themesList).map(camelCaseToCapitalized),
-    }
+    },
   }
 }
 
@@ -42,30 +42,39 @@ export const useGlobalStyles = makeStyles(
       text: {
         primary: color,
       }
+    },
+    transitions: {
+      create: transition,
     }
   }) => ({
   '@global': {
     'html, body, .sbdocs': {
       background,
       color,
+      transition: transition(['background', 'color']),
     },
     '.docs-story, .os-host': {
       background: `${paper} !important`,
+      transition: transition(['background']),
     },
     '.sbdocs-title': {
       color,
+      transition: transition(['color']),
     },
     '.docblock-argstable-body td': {
       background: `${paper} !important`,
       color,
+      transition: transition(['background', 'color']),
     },
     '.docblock-argstable-head tr th': {
+      transition: transition(['color']),
       color: `${color} !important`,
     },
     '.docblock-argstable-body td span, .docblock-argstable-body td select, .docblock-argstable-body td button': {
       background: `${paper} !important`,
       borderColor: `${background} !important`,
       color,
+      transition: transition(['background', 'color', 'border-color']),
     }
   }
 })
