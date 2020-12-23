@@ -4399,6 +4399,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/scheduler@npm:^0":
+  version: 0.16.1
+  resolution: "@types/scheduler@npm:0.16.1"
+  checksum: 0124c2e4dee5e9b8c8524fcd6b1b8ea0b807b132e593925db04cdcc92ca2779a0d27c79414e60454b4458361a4d8319fa2b59d20585054f21617d1e9acf46a6f
+  languageName: node
+  linkType: hard
+
 "@types/source-list-map@npm:*":
   version: 0.1.2
   resolution: "@types/source-list-map@npm:0.1.2"
@@ -8254,6 +8261,7 @@ __metadata:
     "@types/react-dom": ^17.0.0
     "@types/react-measure": ^2
     "@types/react-router": ^5
+    "@types/scheduler": ^0
     "@types/webpack": ^4.41.25
     "@types/webpack-env": ^1.16.0
     "@typescript-eslint/eslint-plugin": ^4.10.0
@@ -8277,8 +8285,12 @@ __metadata:
     react-refresh: ^0.9.0
     react-router: ^5.2.0
     react-scripts: ^4.0.1
+    react-tracked: ^1.5.1
+    scheduler: ^0.20.1
+    ts-deepmerge: ^1.0.6
     typeface-roboto: ^1.1.13
     typescript: ^4.1.3
+    use-context-selector: ^1.3.4
     web-vitals: ^0.2.4
     workbox-background-sync: ^6.0.2
     workbox-broadcast-update: ^6.0.2
@@ -16653,6 +16665,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"proxy-compare@npm:1.1.3":
+  version: 1.1.3
+  resolution: "proxy-compare@npm:1.1.3"
+  checksum: fb88e1e9068799a3b9a95b7d959c2bb3ff11d50144d6abcdeaf6844a8e796d1908959d79a8c84647d81c6d291500affc43768542b4153eeed5c235c951c45579
+  languageName: node
+  linkType: hard
+
 "prr@npm:~1.0.1":
   version: 1.0.1
   resolution: "prr@npm:1.0.1"
@@ -17315,6 +17334,19 @@ fsevents@~2.1.2:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: c60b553a8ab343e5dc40a32fdda59a558a55f3c46ab392728f7dfde17c68e2293189557ba0669cee57b21f1956f83eb77a36f85c2970c8920feaf01712e1bd69
+  languageName: node
+  linkType: hard
+
+"react-tracked@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "react-tracked@npm:1.5.1"
+  dependencies:
+    proxy-compare: 1.1.3
+    use-context-selector: 1.3.2
+  peerDependencies:
+    react: ">=16.8.0"
+    scheduler: ">=0.19.0"
+  checksum: 722d9f41ddd256604f47277095004455a42cc9b209a6cfe3bfc88fac5cc25a11139a37a4911bae72890f85860548b0041012f96733f1b8f406dc7d60e316d8cb
   languageName: node
   linkType: hard
 
@@ -19818,6 +19850,13 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
+"ts-deepmerge@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "ts-deepmerge@npm:1.0.6"
+  checksum: 547e7086ace29abbb0f60d7602c7ef271848cd2024e4a850152574534540c640c1123a23b5300adc229ffc2c6473805f182e3fc977878138545dc937c19c9b49
+  languageName: node
+  linkType: hard
+
 "ts-essentials@npm:^2.0.3":
   version: 2.0.12
   resolution: "ts-essentials@npm:2.0.12"
@@ -20326,6 +20365,40 @@ typescript@^4.1.3:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: 2cea8efcb740634ebd1409eafc52232abc28361386305afe2216cd791529c150f20c580c8310d790b59ff5d927b40c3b675775948183d0f9dce2f92100389c93
+  languageName: node
+  linkType: hard
+
+"use-context-selector@npm:1.3.2":
+  version: 1.3.2
+  resolution: "use-context-selector@npm:1.3.2"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: "*"
+    react-native: "*"
+    scheduler: ">=0.19.0"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: ba2e13a0fe06acc5ad97d53d98b451aa6a48455404ed47789a2398b7ab170676ccbb16cd9da3bbb4649423d66f4a7e9034cf196a597a1532263ee385a045b340
+  languageName: node
+  linkType: hard
+
+"use-context-selector@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "use-context-selector@npm:1.3.4"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: "*"
+    react-native: "*"
+    scheduler: ">=0.19.0"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 32ea1522a055ffc0a6cdb1b2a68feb3cdb68ab794b8a7d0e0ba821104e873e56f02f612748f3d9e92244caf2664ff23baa593e0f464f2e06f251b59d9f3ec7d7
   languageName: node
   linkType: hard
 

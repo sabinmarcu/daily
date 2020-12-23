@@ -1,4 +1,4 @@
-import { Typography, useTheme } from '@material-ui/core';
+import { useTheme } from '@material-ui/core';
 import { useState } from 'react';
 import { Slider } from '../Slider';
 import { disable } from '../../stories/common';
@@ -9,6 +9,8 @@ import { SadIcon } from '../../../../icons/SadIcon';
 import { NeutralIcon } from '../../../../icons/NeutralIcon';
 import { HappyIcon } from '../../../../icons/HappyIcon';
 import { SuperIcon } from '../../../../icons/SuperIcon';
+
+import { Typography } from '../../../../primitives/stories';
 
 const range: RangeType[] = [
   {

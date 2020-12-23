@@ -9,6 +9,6 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "[javascript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }
