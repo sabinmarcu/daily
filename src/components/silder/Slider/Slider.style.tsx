@@ -1,6 +1,7 @@
 import { Container, withTheme } from '@material-ui/core';
 import styled from '@emotion/styled';
 import { SizeType, ZIndexType } from './Slider.types';
+import { WithTheme } from '../types';
 
 const rootSizeMap = {
   small: 50,
@@ -8,7 +9,7 @@ const rootSizeMap = {
   large: 100,
 };
 
-type RootProps = Required<SizeType>;
+type RootProps = WithTheme & Required<SizeType>;
 export const SliderRoot = withTheme(
   styled(Container)<RootProps>(
     ({
@@ -54,7 +55,7 @@ const pointSizeMap = {
 };
 
 export const SliderPoint = withTheme(
-  styled('div')<Required<SizeType>>(
+  styled('div')<RootProps>(
     ({
       size,
       theme: {
