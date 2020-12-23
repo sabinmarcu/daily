@@ -1,4 +1,5 @@
-import { Container, styled, Theme } from '@material-ui/core';
+import { Container, withTheme } from '@material-ui/core';
+import styled from '@emotion/styled';
 import { SizeType, ZIndexType } from './Slider.types';
 
 const rootSizeMap = {
@@ -7,15 +8,26 @@ const rootSizeMap = {
   large: 100,
 };
 
-export const SliderRoot = styled(Container)<Theme, Required<SizeType>>(
-  ({ size, theme: { palette: { background: { paper } } } }) => ({
-    position: 'relative',
-    height: rootSizeMap[size],
-    background: paper,
-  }),
+type RootProps = Required<SizeType>;
+export const SliderRoot = withTheme(
+  styled(Container)<RootProps>(
+    ({
+      size,
+      theme: {
+        palette: { background: { paper } },
+      },
+    }) => ({
+      position: 'relative',
+      height: rootSizeMap[size],
+      background: paper,
+    }),
+    `
+      background: var(--theme-background);
+    `,
+  ),
 );
 
-export const SliderWrapper = styled('div')<Theme, ZIndexType>(
+export const SliderWrapper = styled('div')<ZIndexType>(
   ({ zIndex = 1 }) => ({
     position: 'absolute',
     left: 25,
@@ -41,26 +53,28 @@ const pointSizeMap = {
   large: 30,
 };
 
-export const SliderPoint = styled('div')<Theme, Required<SizeType>>(
-  ({
-    size,
-    theme: {
-      palette: {
-        background: {
-          paper,
+export const SliderPoint = withTheme(
+  styled('div')<Required<SizeType>>(
+    ({
+      size,
+      theme: {
+        palette: {
+          background: {
+            paper,
+          },
         },
       },
-    },
-  }) => ({
-    position: 'absolute',
-    top: rootSizeMap[size] / 2,
-    height: pointSizeMap[size],
-    width: pointSizeMap[size],
-    background: paper,
-    borderRadius: '100%',
-    marginTop: -(pointSizeMap[size] / 2),
-    marginLeft: -(pointSizeMap[size] / 2),
-    border: 'solid 2px transparent',
-    boxSizing: 'border-box',
-  }),
+    }) => ({
+      position: 'absolute',
+      top: rootSizeMap[size] / 2,
+      height: pointSizeMap[size],
+      width: pointSizeMap[size],
+      background: paper,
+      borderRadius: '100%',
+      marginTop: -(pointSizeMap[size] / 2),
+      marginLeft: -(pointSizeMap[size] / 2),
+      border: 'solid 2px transparent',
+      boxSizing: 'border-box',
+    }),
+  ),
 );

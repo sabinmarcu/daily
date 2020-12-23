@@ -23,6 +23,7 @@ export const Container = styled(MUIContainer)(({
   margin: '10px 0',
   boxShadow: shadow,
   background,
+  '--theme-background': background,
 }));
 
 export const ItemContainer = styled('div')<
