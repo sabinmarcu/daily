@@ -14,7 +14,15 @@ import { Showcase } from './stories/common';
 
 export default {
   title: 'Core/Themes',
-  docs: { disable: true },
+  parameters: {
+    viewMode: 'story',
+    docs: { disable: true },
+    previewTabs: {
+      'storybook/docs/panel': {
+        hidden: true,
+      },
+    },
+  },
 };
 
 export const Playground = ({
