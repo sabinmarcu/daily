@@ -1,7 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { withTheme } from '@material-ui/core/styles';
 import { FC, CSSProperties, useMemo } from 'react';
-import { IconType } from '../types';
-import { TackPrimitiveProps, SizeType } from './Tack.types';
+import styled from '@emotion/styled';
+import { IconType, WithTheme } from '../types';
+import { TackPrimitiveProps, SizeType, Animated } from './Tack.types';
 
 const centerStyles: Partial<CSSProperties> = {
   display: 'flex',
@@ -23,18 +24,27 @@ const sizeMap = {
   large: 75,
 };
 
-const useStyles = makeStyles(
-  ({
-    shadows: [,shadow, hoverShadow],
-    typography: {
-      button: typography,
-    },
-    transitions: {
-      create: transition,
-    },
-  }) => ({
-    tack: {
-      ...typography,
+export const TackInnerWrapper = styled.div<IconType>(
+  {
+    ...absStyles,
+    ...centerStyles,
+    transition: 'var(--inner-wrapper-transition)',
+  },
+);
+
+export const StyledTackWrapper = withTheme(
+  styled.div<WithTheme & Animated>(
+    ({
+      theme: {
+        shadows: [,shadow, hoverShadow],
+        transitions: {
+          create: transition,
+        },
+        typography: { button },
+      },
+    }) => ({
+      ...(button as any),
+      ...centerStyles,
       width: 50,
       height: 50,
       boxShadow: shadow,
@@ -43,7 +53,6 @@ const useStyles = makeStyles(
       transition: transition('box-shadow'),
       position: 'relative',
       overflow: 'hidden',
-      ...centerStyles,
 
       '&:hover': {
         boxShadow: hoverShadow,
@@ -65,27 +74,23 @@ const useStyles = makeStyles(
       '& *': {
         pointerEvents: 'none',
       },
-    },
-    wrapper: {
-      ...absStyles,
-      ...centerStyles,
-      transition: 'var(--inner-wrapper-transition)',
-    },
-    animated: {
-      transition: transition(['background', 'left', 'box-shadow']),
-      '--inner-wrapper-transition': transition(['opacity', 'transform']),
-    },
-  }),
+    }),
+    ({
+      animation,
+      theme: {
+        transitions: {
+          create: transition,
+        },
+      },
+    }) => (animation
+      ? {
+        transition: transition(['background', 'left', 'box-shadow']),
+        '--inner-wrapper-transition': transition(['opacity', 'transform']),
+      }
+      : {}
+    ),
+  ),
 );
-
-export const TackInnerWrapper: IconType = ({ children, ...rest }) => {
-  const styles = useStyles(rest);
-  return (
-    <div className={styles.wrapper} {...rest}>
-      {children}
-    </div>
-  );
-};
 
 const useSize = (size: SizeType) => useMemo(
   () => {
@@ -105,7 +110,6 @@ export const TackWrapper: FC<TackPrimitiveProps> = ({
   animation,
   ...rest
 }) => {
-  const styles = useStyles(rest);
   const realSize = useSize(size);
   const finalStyle = {
     background: color.hex(),
@@ -124,13 +128,9 @@ export const TackWrapper: FC<TackPrimitiveProps> = ({
     '--hover-bg': color.isLight() ? 'black' : 'white',
     '--hover-op': color.isLight() ? '0.1' : '0.3',
   };
-  const classes = [
-    styles.tack,
-    animation && styles.animated,
-  ].filter(Boolean).join(' ');
   return (
-    <div
-      className={classes}
+    <StyledTackWrapper
+      animation={animation}
       style={finalStyle as CSSProperties}
       {...rest}
     />
