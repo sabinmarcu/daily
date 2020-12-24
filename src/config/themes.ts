@@ -4,7 +4,6 @@ import {
   lightGreen,
   red,
   pink,
-  blue,
 } from '@material-ui/core/colors';
 
 export type Emotions = 'positive' | 'neutral' | 'negative';
@@ -29,7 +28,7 @@ export type EmotionMapping = {
 const emotionColors: EmotionColors = {
   positive: { primary: green[500], secondary: lightGreen[900] },
   negative: { primary: red[500], secondary: pink[900] },
-  neutral: { primary: blue[200], secondary: blue[900] },
+  neutral: { primary: '#90CAF9', secondary: '#4A90E2' },
 };
 
 const createEmotionTheme = (
