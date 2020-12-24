@@ -1,7 +1,7 @@
 import { withTheme } from '@material-ui/core/styles';
 import { FC, CSSProperties, useMemo } from 'react';
 import styled from '@emotion/styled';
-import { IconType, WithTheme } from '../types';
+import { WithTheme } from '../types';
 import { TackPrimitiveProps, SizeType, Animated } from './Tack.types';
 
 const centerStyles: Partial<CSSProperties> = {
@@ -24,7 +24,7 @@ const sizeMap = {
   large: 75,
 };
 
-export const TackInnerWrapper = styled.div<IconType>(
+export const TackInnerWrapper = styled.div(
   {
     ...absStyles,
     ...centerStyles,
