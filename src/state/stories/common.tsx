@@ -2,7 +2,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { Container, Typography } from '../../primitives/stories';
-import { Template as SliderTemplate, args as sliderArgs } from '../../components/silder/Slider/stories/emotion';
+import { Template as SliderTemplate, args as sliderArgs } from '../../components/silder/Slider/stories/realworld';
 
 export const Showcase = () => (
   <>

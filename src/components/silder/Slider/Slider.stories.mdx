@@ -66,3 +66,29 @@ import {
 </Canvas>
 
 <ArgsTable story="Emotion Example" />
+
+
+
+## Real World Example
+
+This is how it's going to look like with the theme colors integrated.
+
+import {
+  argTypes as realworldArgTypes,
+  args as realworldArgs,
+  parameters as realworldParameters,
+  Template as RealworldTemplate,
+} from './stories/realworld';
+
+<Canvas>
+  <Story
+    name="Real World Example"
+    argTypes={realworldArgTypes}
+    args={realworldArgs}
+    parameters={realworldParameters}
+  >
+    {RealworldTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Real World Example" />
