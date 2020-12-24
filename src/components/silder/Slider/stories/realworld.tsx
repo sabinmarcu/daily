@@ -17,13 +17,13 @@ const range: RangeType[] = [
   {
     at: 0,
     icon: TerribleIcon,
-    color: themes.negative.light.palette.secondary.main,
+    color: themes.negative.light.palette.primary.main,
     name: 'Terrible',
   },
   {
     at: 25,
     icon: SadIcon,
-    color: themes.negative.light.palette.primary.main,
+    color: themes.negative.light.palette.secondary.main,
     name: 'Bad',
   },
   {
